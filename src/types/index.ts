@@ -59,6 +59,8 @@ export interface Axios {
   put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
   patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
+
+  interceptors: Interceptors
 }
 
 export interface AxiosInstance extends Axios {
