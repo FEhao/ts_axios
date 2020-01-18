@@ -102,7 +102,7 @@ router.patch('/extend/patch', function(req, res) {
 })
 
 router.get('/interceptor/get', function(req, res) {
-  res.json({data: 0})
+  res.end('hello')
 })
 
 app.use(router)
