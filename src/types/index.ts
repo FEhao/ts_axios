@@ -22,6 +22,7 @@ export interface AxiosRequestConfig {
   headers?: any
   responseType?: XMLHttpRequestResponseType
   timeout?: number
+  [propName: string]: any
 }
 
 export interface AxiosResponse<T = any> {
@@ -44,7 +45,7 @@ export interface AxiosError extends Error {
 }
 
 export interface Axios {
-
+  defaults: AxiosRequestConfig
   interceptors: {
     request: AxiosInterceptorManager<AxiosRequestConfig>
     response: AxiosInterceptorManager<AxiosResponse>
@@ -65,7 +66,6 @@ export interface Axios {
   put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
   patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
-
 }
 
 export interface AxiosInstance extends Axios {
@@ -78,7 +78,7 @@ export interface AxiosInterceptorManager<T> {
   eject(id: number): void
 }
 
-export interface ResolveFn<T=any> {
+export interface ResolveFn<T = any> {
   (val: T): T | Promise<T>
 }
 
